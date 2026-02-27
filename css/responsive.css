@@ -1,62 +1,47 @@
 /* ========== 响应式设计 ========== */
 
-/* PC端宽屏优化 (>= 768px) */
+/* PC端宽屏 (>= 768px) */
 @media (min-width: 768px) {
   .main-content {
-    max-width: 960px;
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .top-nav-inner {
+    padding: 0 40px;
   }
 
   .ability-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
   .case-preview {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .case-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
   }
 
   .study-card {
-    padding: 40px 32px;
+    padding: 56px 48px;
   }
 
   .days-number {
-    font-size: 64px;
-  }
-
-  .study-meta {
-    font-size: 14px;
-  }
-
-  .bottom-nav-inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .nav-item {
-    font-size: 11px;
-  }
-
-  .nav-item i {
-    font-size: 22px;
+    font-size: 80px;
   }
 
   .course-item {
-    padding: 20px;
+    padding: 22px 24px;
   }
 
   .course-thumb {
     width: 100px;
     height: 100px;
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .course-title {
@@ -64,37 +49,29 @@
   }
 
   .profile-stats {
-    gap: 48px;
-    padding: 24px;
+    gap: 56px;
+    padding: 28px;
   }
 
   .stat-value {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .detail-cover {
-    height: 280px;
+    height: 300px;
   }
 
   .detail-title {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .ai-container {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
   }
 
   .chat-msg {
     max-width: 70%;
-  }
-
-  .community-chat {
-    max-width: 700px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
   }
 
   .modal-panel {
@@ -105,20 +82,25 @@
 /* 大屏PC (>= 1024px) */
 @media (min-width: 1024px) {
   .main-content {
-    max-width: 1080px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
-  .case-preview {
-    grid-template-columns: repeat(4, 1fr);
+  .top-nav-inner {
+    padding: 0 60px;
+  }
+
+  .ability-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
   }
 
   .case-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .case-card-img,
   .case-grid .case-card-img {
-    height: 160px;
+    height: 180px;
   }
 
   .course-list {
@@ -130,30 +112,44 @@
   .resource-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
   }
 
   .community-groups {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
   }
 
   .ability-progress {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px 24px;
+    gap: 16px 32px;
+  }
+
+  .task-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 }
 
 /* 超大屏 (>= 1280px) */
 @media (min-width: 1280px) {
-  .main-content {
-    max-width: 1200px;
-  }
-
   .case-grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .course-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .resource-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .community-groups {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -168,25 +164,26 @@
   }
 
   .ability-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 
   .ability-module {
-    padding: 14px 8px;
+    padding: 16px 8px;
   }
 
   .module-circle {
-    width: 46px;
-    height: 46px;
-    font-size: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
   }
 
   .days-number {
-    font-size: 44px;
+    font-size: 48px;
   }
 
   .study-card {
-    padding: 24px 16px;
+    padding: 28px 20px;
   }
 
   .study-meta {
@@ -194,12 +191,16 @@
     gap: 6px;
   }
 
+  .nav-item {
+    padding: 4px 2px;
+  }
+
   .nav-item span {
     font-size: 9px;
   }
 
   .nav-item i {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .case-preview {
@@ -214,13 +215,22 @@
     gap: 20px;
     padding: 16px;
   }
+
+  .filter-tabs {
+    gap: 6px;
+  }
+
+  .filter-tab {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
 }
 
 /* 中等手机 (376px - 767px) */
 @media (min-width: 376px) and (max-width: 767px) {
   .ability-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 }
 

@@ -11,11 +11,35 @@ const state = {
 // ========== 初始化 ==========
 document.addEventListener('DOMContentLoaded', () => {
   renderHome();
+  initScrollReveal();
 });
+
+// ========== 滚动揭示动画 ==========
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // 重新观察（页面切换后新元素）
+  window._revealObserver = observer;
+}
+
+function refreshReveal() {
+  if (!window._revealObserver) return;
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    window._revealObserver.observe(el);
+  });
+}
 
 // ========== 页面切换（HTML中调用switchTab） ==========
 function switchTab(pageId) {
   state.previousPage = state.currentPage;
+  // 切换页面时关闭社区聊天面板
+  closeCommunityChat();
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + pageId);
   if (target) {
