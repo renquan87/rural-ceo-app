@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>"乡理人"点亮行动</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <nav class="top-nav">
+    <div class="top-nav-inner container-lg">
+      <div class="brand">
+        <i class="fas fa-seedling"></i>
+        <span>"乡理人"点亮行动</span>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-icon" onclick="showNotifications()" title="消息通知">
+          <i class="fas fa-bell"></i>
+          <span class="badge-dot"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容区域 -->
+  <main class="main-content container-lg">
+    <!-- ========== 首页 ========== -->
+    <section id="page-home" class="page active">
+      <!-- 学习天数卡片 -->
+      <div class="study-card">
+        <div class="study-card-bg"></div>
+        <div class="study-card-content">
+          <div class="study-days">
+            <span class="days-number" id="study-days">162</span>
+            <span class="days-label">天</span>
+          </div>
+          <div class="study-subtitle">已坚持学习</div>
+          <div class="study-meta">
+            <span><i class="fas fa-book-open"></i> 已完成 <strong id="completed-tasks">12</strong> 个任务</span>
+            <span><i class="fas fa-fire"></i> 连续学习 <strong id="streak-days">7</strong> 天</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 六大能力模块 -->
+      <div class="section-header">
+        <h2>六大能力模块</h2>
+        <span class="section-desc">全方位提升乡村治理能力</span>
+      </div>
+      <div class="ability-grid" id="ability-modules">
+        <!-- JS动态渲染 -->
+      </div>
+
+      <!-- 今日任务课程 -->
+      <div class="section-header">
+        <h2>今日任务课程</h2>
+        <a href="javascript:void(0)" onclick="switchTab('courses')" class="see-all">查看全部 <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="task-list" id="today-tasks">
+        <!-- JS动态渲染 -->
+      </div>
+
+      <!-- 推荐案例 -->
+      <div class="section-header">
+        <h2>推荐案例</h2>
+        <a href="javascript:void(0)" onclick="switchTab('cases')" class="see-all">查看全部 <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="case-preview" id="home-cases">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== 课程页面 ========== -->
+    <section id="page-courses" class="page">
+      <div class="page-title">
+        <h1>课程中心</h1>
+        <p>系统化学习乡村治理知识</p>
+      </div>
+      <!-- 课程分类标签 -->
+      <div class="filter-tabs" id="course-filters">
+        <button class="filter-tab active" data-filter="all">全部</button>
+        <button class="filter-tab" data-filter="zheng">政策</button>
+        <button class="filter-tab" data-filter="jing">经济</button>
+        <button class="filter-tab" data-filter="pin">品牌</button>
+        <button class="filter-tab" data-filter="shi">实践</button>
+        <button class="filter-tab" data-filter="xiao">营销</button>
+        <button class="filter-tab" data-filter="shu">数据</button>
+      </div>
+      <!-- 课程列表 -->
+      <div class="course-list" id="course-list">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== 案例库页面 ========== -->
+    <section id="page-cases" class="page">
+      <div class="page-title">
+        <h1>成功案例</h1>
+        <p>学习各地乡村振兴成功经验</p>
+      </div>
+      <!-- 案例地区筛选 -->
+      <div class="filter-tabs" id="case-filters">
+        <button class="filter-tab active" data-filter="all">全部地区</button>
+        <button class="filter-tab" data-filter="east">华东</button>
+        <button class="filter-tab" data-filter="south">华南</button>
+        <button class="filter-tab" data-filter="central">华中</button>
+        <button class="filter-tab" data-filter="north">华北</button>
+        <button class="filter-tab" data-filter="west">西部</button>
+      </div>
+      <div class="case-grid" id="case-list">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== 学习资料页面 ========== -->
+    <section id="page-resources" class="page">
+      <div class="page-title">
+        <h1>学习资料</h1>
+        <p>政策文件、行业报告、培训视频等资源</p>
+      </div>
+      <div class="filter-tabs" id="resource-filters">
+        <button class="filter-tab active" data-filter="all">全部</button>
+        <button class="filter-tab" data-filter="policy">政策文件</button>
+        <button class="filter-tab" data-filter="report">行业报告</button>
+        <button class="filter-tab" data-filter="video">培训视频</button>
+        <button class="filter-tab" data-filter="book">专业书籍</button>
+      </div>
+      <div class="resource-list" id="resource-list">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== AI助手页面 ========== -->
+    <section id="page-ai" class="page">
+      <div class="ai-container">
+        <div class="ai-header">
+          <div class="ai-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div>
+            <h2>乡理人 AI 助手</h2>
+            <p>智能分析案例，为您提供发展思路</p>
+          </div>
+        </div>
+        <!-- 快捷功能 -->
+        <div class="ai-quick-actions">
+          <button onclick="aiQuickAction('case')"><i class="fas fa-lightbulb"></i> 案例分析</button>
+          <button onclick="aiQuickAction('learn')"><i class="fas fa-graduation-cap"></i> 学习建议</button>
+          <button onclick="aiQuickAction('policy')"><i class="fas fa-file-alt"></i> 政策解读</button>
+          <button onclick="aiQuickAction('brand')"><i class="fas fa-bullhorn"></i> 品牌策划</button>
+        </div>
+        <!-- 聊天区域 -->
+        <div class="chat-messages" id="chat-messages">
+          <!-- JS动态渲染 -->
+        </div>
+        <!-- 输入区域 -->
+        <div class="chat-input-area">
+          <div class="chat-input-wrapper">
+            <input type="text" id="chat-input" placeholder="输入您的问题..." onkeypress="if(event.key==='Enter')sendMessage()">
+            <button class="btn-send" onclick="sendMessage()">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 交流社区页面 ========== -->
+    <section id="page-community" class="page">
+      <div class="page-title">
+        <h1>交流社区</h1>
+        <p>大学生村官交流平台 · 按地区分组</p>
+      </div>
+      <!-- 地区群组 -->
+      <div class="community-groups" id="community-groups">
+        <!-- JS动态渲染 -->
+      </div>
+      <!-- 模拟聊天界面 -->
+      <div class="community-chat hidden" id="community-chat">
+        <div class="community-chat-header">
+          <button onclick="closeCommunityChat()" class="btn-back"><i class="fas fa-arrow-left"></i></button>
+          <span id="chat-group-name">群组名称</span>
+          <span class="member-count" id="chat-member-count">0人</span>
+        </div>
+        <div class="community-messages" id="community-messages">
+          <!-- JS动态渲染 -->
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-input-wrapper">
+            <input type="text" id="community-input" placeholder="发送消息..." onkeypress="if(event.key==='Enter')sendCommunityMessage()">
+            <button class="btn-send" onclick="sendCommunityMessage()">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 个人中心页面 ========== -->
+    <section id="page-profile" class="page">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <h2 class="profile-name">乡村建设者</h2>
+        <p class="profile-role">返乡创业青年</p>
+      </div>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-value" id="profile-days">162</div>
+          <div class="stat-label">学习天数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="profile-tasks">12</div>
+          <div class="stat-label">完成任务</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="profile-hours">48</div>
+          <div class="stat-label">学习时长(h)</div>
+        </div>
+      </div>
+      <!-- 学习进度 -->
+      <div class="section-header"><h2>能力成长</h2></div>
+      <div class="ability-progress" id="ability-progress">
+        <!-- JS动态渲染 -->
+      </div>
+      <!-- 功能菜单 -->
+      <div class="profile-menu">
+        <div class="menu-item" onclick="showNotifications()">
+          <i class="fas fa-bell"></i><span>消息通知</span><i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="menu-item" onclick="showBookmarks()">
+          <i class="fas fa-bookmark"></i><span>我的收藏</span><i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="menu-item" onclick="showHistory()">
+          <i class="fas fa-history"></i><span>学习记录</span><i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="menu-item" onclick="showSettings()">
+          <i class="fas fa-cog"></i><span>设置</span><i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="menu-item" onclick="showAbout()">
+          <i class="fas fa-info-circle"></i><span>关于我们</span><i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="menu-item" onclick="shareApp()">
+          <i class="fas fa-share-alt"></i><span>分享给朋友</span><i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 课程详情页 ========== -->
+    <section id="page-course-detail" class="page">
+      <div class="detail-back">
+        <button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> 返回</button>
+      </div>
+      <div id="course-detail-content">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== 案例详情页 ========== -->
+    <section id="page-case-detail" class="page">
+      <div class="detail-back">
+        <button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> 返回</button>
+      </div>
+      <div id="case-detail-content">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+
+    <!-- ========== 能力模块详情页 ========== -->
+    <section id="page-module-detail" class="page">
+      <div class="detail-back">
+        <button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> 返回</button>
+      </div>
+      <div id="module-detail-content">
+        <!-- JS动态渲染 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部导航栏 -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner container-lg">
+      <button class="nav-item active" data-page="home" onclick="switchTab('home')">
+        <i class="fas fa-home"></i>
+        <span>首页</span>
+      </button>
+      <button class="nav-item" data-page="courses" onclick="switchTab('courses')">
+        <i class="fas fa-book"></i>
+        <span>课程</span>
+      </button>
+      <button class="nav-item" data-page="cases" onclick="switchTab('cases')">
+        <i class="fas fa-briefcase"></i>
+        <span>案例</span>
+      </button>
+      <button class="nav-item" data-page="resources" onclick="switchTab('resources')">
+        <i class="fas fa-folder-open"></i>
+        <span>资料</span>
+      </button>
+      <button class="nav-item" data-page="ai" onclick="switchTab('ai')">
+        <i class="fas fa-robot"></i>
+        <span>AI助手</span>
+      </button>
+      <button class="nav-item" data-page="community" onclick="switchTab('community')">
+        <i class="fas fa-comments"></i>
+        <span>社区</span>
+      </button>
+      <button class="nav-item" data-page="profile" onclick="switchTab('profile')">
+        <i class="fas fa-user"></i>
+        <span>我的</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 模态框：通知 -->
+  <div class="modal-overlay hidden" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-panel hidden" id="modal-panel">
+    <div class="modal-header">
+      <h3 id="modal-title">标题</h3>
+      <button onclick="closeModal()" class="btn-close-modal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <!-- 动态内容 -->
+    </div>
+  </div>
+
+  <!-- Toast提示 -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
