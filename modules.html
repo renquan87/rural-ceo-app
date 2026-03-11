@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="能力培养 - 六大核心能力模块，全方位提升乡村治理能力，从政策解读到数据分析">
+  <meta name="keywords" content="乡村治理能力,政策解读,经济管理,品牌建设,营销推广,数据分析">
+  <meta name="theme-color" content="#4a7c59">
+  <meta property="og:title" content="能力培养 - "乡理人"点亮行动">
+  <meta property="og:description" content="六大核心能力模块，全方位提升乡村治理能力">
+  <meta property="og:type" content="website">
+  <title>能力培养 - "乡理人"点亮行动</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">跳转到主要内容</a>
+
+  <nav class="site-nav" role="navigation" aria-label="主导航">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>乡理人</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="modules.html" class="nav-link active" aria-current="page">能力培养</a>
+        <a href="cases.html" class="nav-link">成功案例</a>
+        <a href="courses.html" class="nav-link">课程中心</a>
+        <a href="resources.html" class="nav-link">学习资料</a>
+        <a href="ai.html" class="nav-link">AI助手</a>
+        <a href="community.html" class="nav-link">交流社区</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      <a href="modules.html" class="nav-cta">开始学习 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="section-container">
+        <div class="section-tag">核心能力</div>
+        <h1 class="section-title">六大能力模块</h1>
+        <p class="section-subtitle">全方位提升乡村治理能力，从政策解读到数据分析</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <div class="modules-grid" id="modules-grid" role="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>"乡理人"点亮行动</span></div>
+      <p class="footer-desc">致力于培养新时代乡村治理人才</p>
+      <div class="footer-links">
+        <a href="modules.html">能力培养</a><a href="cases.html">成功案例</a>
+        <a href="courses.html">课程中心</a><a href="resources.html">学习资料</a>
+        <a href="ai.html">AI助手</a><a href="community.html">交流社区</a>
+      </div>
+      <p class="footer-copy">© 2026 "乡理人"点亮行动 · 版本 2.0</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay hidden" id="modal-overlay" role="presentation"></div>
+  <div class="modal-panel hidden" id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header"><h3 id="modal-title">标题</h3><button onclick="closeModal()" class="btn-close-modal" aria-label="关闭"><i class="fas fa-times" aria-hidden="true"></i></button></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script>
+    const descs = [
+      '学习乡村振兴政策法规，掌握最新政策动态与解读方法',
+      '掌握乡村产业规划方法，制定科学的发展战略',
+      '学习农产品品牌建设，打造有影响力的乡村品牌',
+      '掌握乡村治理实务技能，提升基层管理能力',
+      '学习农产品营销推广策略，拓展销售渠道',
+      '掌握数据分析工具，用数据驱动乡村发展决策'
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('scroll', () => document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 20));
+
+      // 汉堡菜单
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+          navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        });
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+          });
+        });
+      }
+
+      renderModules();
+    });
+
+    function renderModules() {
+      const grid = document.getElementById('modules-grid');
+      grid.innerHTML = AppData.modules.map((m, i) => `
+        <div class="module-card reveal" role="listitem" tabindex="0" onclick="openModule(${i})" onkeydown="if(event.key==='Enter')openModule(${i})" style="animation-delay:${i*0.08}s">
+          <div class="module-card-icon" style="background:${m.color}15;color:${m.color}">${m.icon}</div>
+          <div class="module-card-title">${m.title}</div>
+          <div class="module-card-desc">${descs[i]}</div>
+          <div class="module-card-progress" role="progressbar" aria-valuenow="${m.progress}" aria-valuemin="0" aria-valuemax="100" aria-label="${m.title}学习进度"><div class="module-card-progress-bar" style="width:${m.progress}%;background:${m.color}"></div></div>
+          <div class="module-card-progress-text">已完成 ${m.progress}%</div>
+        </div>
+      `).join('');
+
+      // 顶部色条
+      const style = document.createElement('style');
+      style.textContent = AppData.modules.map((m,i) => `.module-card:nth-child(${i+1})::before{background:${m.color}}`).join('\n');
+      document.head.appendChild(style);
+
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
+    function openModule(i) {
+      const m = AppData.modules[i];
+      const raw = abilityModules[i];
+      if (!m || !raw) return;
+      openModal(m.title, `
+        <div style="text-align:center;padding:24px 0">
+          <div style="width:72px;height:72px;border-radius:20px;background:${m.color}15;color:${m.color};display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px">${m.icon}</div>
+          <p style="font-size:14px;color:var(--text-muted);max-width:400px;margin:0 auto 16px">${descs[i]}</p>
+          <div style="font-size:13px;color:var(--text-muted)">已完成 ${m.progress}%</div>
+          <div style="height:6px;background:var(--border-light);border-radius:3px;margin-top:8px;overflow:hidden;max-width:300px;margin-left:auto;margin-right:auto">
+            <div style="height:100%;width:${m.progress}%;background:${m.color};border-radius:3px"></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h3>模块课程</h3>
+          ${raw.courses.map((c, j) => `
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:1px solid var(--border-light);margin-bottom:8px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='var(--leaf-bg)'" onmouseout="this.style.background=''">
+              <div style="width:28px;height:28px;border-radius:50%;background:${c.done ? m.color : 'var(--border-light)'};color:${c.done ? '#fff' : 'var(--text-muted)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">${c.done ? '✓' : j+1}</div>
+              <span style="flex:1;font-size:14px;font-weight:600;color:${c.done ? 'var(--text-primary)' : 'var(--text-secondary)'}">${c.title}</span>
+              <span style="font-size:12px;color:${c.done ? m.color : 'var(--text-muted)'};font-weight:600">${c.done ? '已完成' : '未开始'}</span>
+            </div>
+          `).join('')}
+        </div>
+      `);
+    }
+
+    function openModal(title, body) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-body').innerHTML = body;
+      document.getElementById('modal-overlay').classList.remove('hidden');
+      document.getElementById('modal-panel').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.btn-close-modal').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      document.getElementById('modal-panel').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-overlay').addEventListener('click', closeModal);
+
+    function showToast(msg) {
+      const t = document.createElement('div'); t.className='toast'; t.textContent=msg;
+      document.getElementById('toast-container').appendChild(t);
+      setTimeout(()=>t.remove(),3000);
+    }
+
+    // ESC关闭
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const panel = document.getElementById('modal-panel');
+        if (panel && !panel.classList.contains('hidden')) { closeModal(); return; }
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.querySelector('i').className = 'fas fa-bars';
+          navToggle.focus();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 // ========== 六大能力模块 ==========
 const abilityModules = [
-  { id: 'zheng', name: '政', title: '政策解读', color: '#2563eb', icon: 'fas fa-landmark', progress: 65,
+  { id: 'zheng', name: '📋', title: '政策解读', color: '#2563eb', icon: 'fas fa-landmark', progress: 65,
     desc: '深入解读乡村振兴相关政策法规，掌握土地流转、合作社运营等核心政策',
     courses: [
       { title: '乡村振兴战略政策全解读', done: true },
@@ -10,7 +10,7 @@ const abilityModules = [
       { title: '乡村治理现代化政策解读', done: false }
     ]
   },
-  { id: 'jing', name: '经', title: '经济管理', color: '#16a34a', icon: 'fas fa-chart-line', progress: 45,
+  { id: 'jing', name: '📈', title: '经济管理', color: '#16a34a', icon: 'fas fa-chart-line', progress: 45,
     desc: '学习农村经济管理知识，掌握财务分析、项目评估等实用技能',
     courses: [
       { title: '农村集体经济发展模式', done: true },
@@ -20,7 +20,7 @@ const abilityModules = [
       { title: '农村金融与融资渠道', done: false }
     ]
   },
-  { id: 'pin', name: '品', title: '品牌建设', color: '#ea580c', icon: 'fas fa-award', progress: 30,
+  { id: 'pin', name: '🏷️', title: '品牌建设', color: '#ea580c', icon: 'fas fa-award', progress: 30,
     desc: '学习区域公共品牌打造方法，提升农产品品牌价值和市场竞争力',
     courses: [
       { title: '区域公共品牌打造方法论', done: true },
@@ -30,7 +30,7 @@ const abilityModules = [
       { title: '品牌传播与口碑营销', done: false }
     ]
   },
-  { id: 'shi', name: '实', title: '实践案例', color: '#dc2626', icon: 'fas fa-hands-helping', progress: 55,
+  { id: 'shi', name: '🔧', title: '实践案例', color: '#dc2626', icon: 'fas fa-hands-helping', progress: 55,
     desc: '深入分析各地乡村振兴成功案例，提炼可复制的实践经验',
     courses: [
       { title: '浙江安吉"两山"实践经验', done: true },
@@ -40,7 +40,7 @@ const abilityModules = [
       { title: '江苏华西村发展启示录', done: false }
     ]
   },
-  { id: 'xiao', name: '销', title: '营销推广', color: '#9333ea', icon: 'fas fa-bullhorn', progress: 40,
+  { id: 'xiao', name: '📢', title: '营销推广', color: '#9333ea', icon: 'fas fa-bullhorn', progress: 40,
     desc: '掌握新媒体营销、电商运营等现代营销方法，拓宽农产品销售渠道',
     courses: [
       { title: '农产品电商运营实战', done: true },
@@ -50,7 +50,7 @@ const abilityModules = [
       { title: '线上线下融合营销策略', done: false }
     ]
   },
-  { id: 'shu', name: '数', title: '数据分析', color: '#0891b2', icon: 'fas fa-database', progress: 20,
+  { id: 'shu', name: '📊', title: '数据分析', color: '#0891b2', icon: 'fas fa-database', progress: 20,
     desc: '学习数据采集与分析方法，用数据驱动乡村治理和产业决策',
     courses: [
       { title: '乡村数据采集与管理基础', done: true },
@@ -78,16 +78,16 @@ const coursesData = [
 
 // ========== 案例数据 ==========
 const casesData = [
-  { id: 1, region: 'east', title: '浙江安吉：绿水青山就是金山银山', location: '浙江省湖州市安吉县', color: '#16a34a', icon: 'fas fa-mountain', summary: '安吉县从矿山经济转型为生态经济，白茶产业年产值超30亿元。', detail: '安吉县曾是浙江省25个贫困县之一。2005年提出"两山"理念后，全面关停矿山，发展白茶、竹产业和乡村旅游。\n\n关键举措：\n- 关停全部矿山，修复生态环境\n- 发展安吉白茶品牌\n- 打造美丽乡村示范带\n- 建设竹产业链\n\n成效：白茶年产值超30亿元，年接待游客超2000万人次，农民人均收入超4万元。', tags: ['生态经济', '品牌农业', '乡村旅游'] },
-  { id: 2, region: 'east', title: '山东寿光：中国蔬菜之乡的产业传奇', location: '山东省潍坊市寿光市', color: '#2563eb', icon: 'fas fa-seedling', summary: '寿光市通过蔬菜产业集群化发展，建成全国最大的蔬菜生产和批发市场。', detail: '寿光从普通农业县发展为"中国蔬菜之乡"。\n\n发展历程：\n- 1989年引进冬暖式大棚技术\n- 建设寿光蔬菜批发市场\n- 发展蔬菜种苗产业\n- 推进智慧农业建设\n\n成效：蔬菜种植面积60万亩，年产量450万吨，带动周边100万农民增收。', tags: ['产业集群', '技术创新', '市场建设'] },
-  { id: 3, region: 'west', title: '贵州遵义：红色旅游带动乡村振兴', location: '贵州省遵义市', color: '#dc2626', icon: 'fas fa-flag', summary: '遵义依托红色文化资源，发展红色旅游+乡村旅游融合模式。', detail: '遵义充分利用红色文化资源优势。\n\n发展模式：\n- 红色旅游+乡村旅游融合发展\n- 红色文化+农耕文化体验\n- 旅游+特色农产品销售\n\n成效：年接待游客超1.5亿人次，旅游综合收入超500亿元，带动10万余人就业。', tags: ['红色旅游', '文旅融合', '乡村民宿'] },
-  { id: 4, region: 'central', title: '四川战旗村：集体经济改革样板', location: '四川省成都市郫都区', color: '#ea580c', icon: 'fas fa-users', summary: '战旗村通过集体经济改革，实现村集体资产超亿元。', detail: '战旗村是全国农村集体经济改革的标杆。\n\n改革路径：\n- 农村集体资产股份化改革\n- 集体建设用地入市试点\n- 发展乡村旅游和文创产业\n\n成效：村集体资产超1亿元，村民人均收入超3万元。', tags: ['集体经济', '制度创新', '共同富裕'] },
-  { id: 5, region: 'east', title: '江苏华西村：天下第一村的转型之路', location: '江苏省无锡市江阴市', color: '#9333ea', icon: 'fas fa-building', summary: '华西村从传统农业村发展为多元化产业集团。', detail: '华西村被誉为"天下第一村"。\n\n发展阶段：\n- 1960s-1970s：农业学大寨\n- 1980s：乡镇企业崛起\n- 1990s：产业多元化发展\n- 2000s至今：转型升级\n\n核心经验：坚持集体经济道路，与时俱进产业升级。', tags: ['集体经济', '产业升级', '城镇化'] },
-  { id: 6, region: 'south', title: '广东清远：农村电商助力脱贫攻坚', location: '广东省清远市', color: '#0891b2', icon: 'fas fa-shopping-bag', summary: '清远市通过"农村电商+特色农产品"模式，帮助山区农民增收致富。', detail: '清远市地处粤北山区，通过发展农村电商让农产品走向全国。\n\n发展策略：\n- 建设县镇村三级电商服务体系\n- 培育本土电商人才\n- 打造清远鸡、英德红茶等品牌\n\n成效：农产品网络零售额超50亿元，带动5万余农户增收。', tags: ['农村电商', '品牌农业', '人才培养'] },
-  { id: 7, region: 'central', title: '湖南十八洞村：精准扶贫首倡地', location: '湖南省湘西州花垣县', color: '#dc2626', icon: 'fas fa-hand-holding-heart', summary: '十八洞村探索出"可复制、可推广"的脱贫经验，人均收入增长10倍。', detail: '2013年精准扶贫理念在十八洞村首次提出。\n\n脱贫路径：\n- 发展特色种植（猕猴桃、油茶）\n- 开发苗族文化旅游\n- 发展苗绣等手工艺产业\n\n成效：人均年收入从1668元增长到超2万元。', tags: ['精准扶贫', '文化旅游', '产业发展'] },
-  { id: 8, region: 'north', title: '河北正定：古城文旅融合发展', location: '河北省石家庄市正定县', color: '#ea580c', icon: 'fas fa-torii-gate', summary: '正定县依托千年古城文化资源，打造文旅融合发展新模式。', detail: '正定是国家历史文化名城。\n\n发展策略：\n- 古城保护与修复\n- 夜经济与文创产业\n- 智慧旅游建设\n\n成效：年接待游客超1500万人次，旅游收入超100亿元。', tags: ['文旅融合', '古城保护', '夜经济'] },
-  { id: 9, region: 'west', title: '云南元阳：哈尼梯田的活态保护', location: '云南省红河州元阳县', color: '#16a34a', icon: 'fas fa-water', summary: '元阳县在保护世界文化遗产的同时，发展生态农业和文化旅游。', detail: '哈尼梯田是世界文化遗产。\n\n保护与发展策略：\n- 传统农耕文化保护\n- 梯田红米品牌化发展\n- 哈尼文化体验旅游\n\n成效：梯田红米售价提升5倍，年旅游收入超20亿元。', tags: ['文化遗产', '生态农业', '文化旅游'] },
-  { id: 10, region: 'south', title: '海南博鳌：从小渔村到国际会议中心', location: '海南省琼海市博鳌镇', color: '#2563eb', icon: 'fas fa-globe-asia', summary: '博鳌从普通渔村发展为亚洲论坛永久会址所在地。', detail: '博鳌的蜕变是借助重大机遇实现跨越式发展的典型。\n\n发展历程：\n- 2001年亚洲论坛落户博鳌\n- 基础设施全面升级\n- 发展会议经济和旅游业\n\n成效：年接待游客超500万人次，周边村庄人均收入翻番。', tags: ['会议经济', '基础设施', '机遇把握'] }
+  { id: 1, img: 'images/case-1.jpg', region: 'east', title: '浙江安吉：绿水青山就是金山银山', location: '浙江省湖州市安吉县', color: '#16a34a', icon: 'fas fa-mountain', summary: '安吉县从矿山经济转型为生态经济，白茶产业年产值超30亿元。', detail: '安吉县曾是浙江省25个贫困县之一。2005年提出"两山"理念后，全面关停矿山，发展白茶、竹产业和乡村旅游。\n\n关键举措：\n- 关停全部矿山，修复生态环境\n- 发展安吉白茶品牌\n- 打造美丽乡村示范带\n- 建设竹产业链\n\n成效：白茶年产值超30亿元，年接待游客超2000万人次，农民人均收入超4万元。', tags: ['生态经济', '品牌农业', '乡村旅游'] },
+  { id: 2, img: 'images/case-2.jpg', region: 'east', title: '山东寿光：中国蔬菜之乡的产业传奇', location: '山东省潍坊市寿光市', color: '#2563eb', icon: 'fas fa-seedling', summary: '寿光市通过蔬菜产业集群化发展，建成全国最大的蔬菜生产和批发市场。', detail: '寿光从普通农业县发展为"中国蔬菜之乡"。\n\n发展历程：\n- 1989年引进冬暖式大棚技术\n- 建设寿光蔬菜批发市场\n- 发展蔬菜种苗产业\n- 推进智慧农业建设\n\n成效：蔬菜种植面积60万亩，年产量450万吨，带动周边100万农民增收。', tags: ['产业集群', '技术创新', '市场建设'] },
+  { id: 3, img: 'images/case-3.jpg', region: 'west', title: '贵州遵义：红色旅游带动乡村振兴', location: '贵州省遵义市', color: '#dc2626', icon: 'fas fa-flag', summary: '遵义依托红色文化资源，发展红色旅游+乡村旅游融合模式。', detail: '遵义充分利用红色文化资源优势。\n\n发展模式：\n- 红色旅游+乡村旅游融合发展\n- 红色文化+农耕文化体验\n- 旅游+特色农产品销售\n\n成效：年接待游客超1.5亿人次，旅游综合收入超500亿元，带动10万余人就业。', tags: ['红色旅游', '文旅融合', '乡村民宿'] },
+  { id: 4, img: 'images/case-4.jpg', region: 'central', title: '四川战旗村：集体经济改革样板', location: '四川省成都市郫都区', color: '#ea580c', icon: 'fas fa-users', summary: '战旗村通过集体经济改革，实现村集体资产超亿元。', detail: '战旗村是全国农村集体经济改革的标杆。\n\n改革路径：\n- 农村集体资产股份化改革\n- 集体建设用地入市试点\n- 发展乡村旅游和文创产业\n\n成效：村集体资产超1亿元，村民人均收入超3万元。', tags: ['集体经济', '制度创新', '共同富裕'] },
+  { id: 5, img: 'images/case-5.jpg', region: 'east', title: '江苏华西村：天下第一村的转型之路', location: '江苏省无锡市江阴市', color: '#9333ea', icon: 'fas fa-building', summary: '华西村从传统农业村发展为多元化产业集团。', detail: '华西村被誉为"天下第一村"。\n\n发展阶段：\n- 1960s-1970s：农业学大寨\n- 1980s：乡镇企业崛起\n- 1990s：产业多元化发展\n- 2000s至今：转型升级\n\n核心经验：坚持集体经济道路，与时俱进产业升级。', tags: ['集体经济', '产业升级', '城镇化'] },
+  { id: 6, img: 'images/case-6.jpg', region: 'south', title: '广东清远：农村电商助力脱贫攻坚', location: '广东省清远市', color: '#0891b2', icon: 'fas fa-shopping-bag', summary: '清远市通过"农村电商+特色农产品"模式，帮助山区农民增收致富。', detail: '清远市地处粤北山区，通过发展农村电商让农产品走向全国。\n\n发展策略：\n- 建设县镇村三级电商服务体系\n- 培育本土电商人才\n- 打造清远鸡、英德红茶等品牌\n\n成效：农产品网络零售额超50亿元，带动5万余农户增收。', tags: ['农村电商', '品牌农业', '人才培养'] },
+  { id: 7, img: 'images/case-7.jpg', region: 'central', title: '湖南十八洞村：精准扶贫首倡地', location: '湖南省湘西州花垣县', color: '#dc2626', icon: 'fas fa-hand-holding-heart', summary: '十八洞村探索出"可复制、可推广"的脱贫经验，人均收入增长10倍。', detail: '2013年精准扶贫理念在十八洞村首次提出。\n\n脱贫路径：\n- 发展特色种植（猕猴桃、油茶）\n- 开发苗族文化旅游\n- 发展苗绣等手工艺产业\n\n成效：人均年收入从1668元增长到超2万元。', tags: ['精准扶贫', '文化旅游', '产业发展'] },
+  { id: 8, img: 'images/case-8.jpg', region: 'north', title: '河北正定：古城文旅融合发展', location: '河北省石家庄市正定县', color: '#ea580c', icon: 'fas fa-torii-gate', summary: '正定县依托千年古城文化资源，打造文旅融合发展新模式。', detail: '正定是国家历史文化名城。\n\n发展策略：\n- 古城保护与修复\n- 夜经济与文创产业\n- 智慧旅游建设\n\n成效：年接待游客超1500万人次，旅游收入超100亿元。', tags: ['文旅融合', '古城保护', '夜经济'] },
+  { id: 9, img: 'images/yunnan.jpg', region: 'west', title: '云南元阳：哈尼梯田的活态保护', location: '云南省红河州元阳县', color: '#16a34a', icon: 'fas fa-water', summary: '元阳县在保护世界文化遗产的同时，发展生态农业和文化旅游。', detail: '哈尼梯田是世界文化遗产。\n\n保护与发展策略：\n- 传统农耕文化保护\n- 梯田红米品牌化发展\n- 哈尼文化体验旅游\n\n成效：梯田红米售价提升5倍，年旅游收入超20亿元。', tags: ['文化遗产', '生态农业', '文化旅游'] },
+  { id: 10, img: 'images/hainan.jpg', region: 'south', title: '海南博鳌：从小渔村到国际会议中心', location: '海南省琼海市博鳌镇', color: '#2563eb', icon: 'fas fa-globe-asia', summary: '博鳌从普通渔村发展为亚洲论坛永久会址所在地。', detail: '博鳌的蜕变是借助重大机遇实现跨越式发展的典型。\n\n发展历程：\n- 2001年亚洲论坛落户博鳌\n- 基础设施全面升级\n- 发展会议经济和旅游业\n\n成效：年接待游客超500万人次，周边村庄人均收入翻番。', tags: ['会议经济', '基础设施', '机遇把握'] }
 ];
 
 // ========== 学习资料数据 ==========
@@ -161,3 +161,67 @@ const todayTasks = [
   { title: '打造区域公共品牌', category: 'pin', icon: 'fas fa-award', color: '#ea580c', tag: '品牌', tagColor: '#ffedd5', tagTextColor: '#9a3412' },
   { title: '新媒体进行营销推广', category: 'xiao', icon: 'fas fa-bullhorn', color: '#9333ea', tag: '营销', tagColor: '#f3e8ff', tagTextColor: '#6b21a8' }
 ];
+
+// ========== 统一数据接口 ==========
+const AppData = {
+  modules: abilityModules.map(m => ({
+    title: m.title,
+    icon: m.name,
+    color: m.color,
+    progress: m.progress,
+    desc: m.desc,
+    courses: m.courses
+  })),
+  cases: casesData.map(c => ({
+    title: c.title,
+    location: c.location,
+    category: c.tags ? c.tags[0] : '乡村振兴',
+    image: c.img || null,
+    icon: c.icon ? `<i class="${c.icon}"></i>` : '🌾',
+    gradient: `linear-gradient(135deg, ${c.color}, ${c.color}88)`,
+    summary: c.detail || c.summary,
+    description: c.summary,
+    keyPoints: c.tags,
+    results: c.summary
+  })),
+  courses: coursesData.map(c => ({
+    title: c.title,
+    icon: c.icon ? `<i class="${c.icon}"></i>` : '📚',
+    type: c.type === 'video' ? '视频课程' : c.type === 'article' ? '图文教程' : '实践练习',
+    tags: [c.type],
+    level: c.students > 2000 ? '热门' : c.students > 1000 ? '进阶' : '入门',
+    duration: c.duration,
+    gradient: `linear-gradient(135deg, ${c.color}, ${c.color}88)`,
+    description: c.content,
+    summary: c.desc,
+    chapters: ['第一章：基础概念与背景', '第二章：核心理论与方法', '第三章：实操技巧与工具', '第四章：案例深度分析', '第五章：总结与行动计划'],
+    module: '',
+    category: ''
+  })),
+  resources: resourcesData.map(r => ({
+    title: r.title,
+    description: r.desc,
+    type: r.type,
+    category: r.type === 'policy' ? '政策文件' : r.type === 'report' ? '行业报告' : r.type === 'video' ? '培训视频' : '推荐书籍',
+    icon: r.icon ? `<i class="${r.icon}"></i>` : '📄',
+    format: r.format
+  })),
+  community: communityGroups.map(g => ({
+    name: g.name,
+    desc: g.desc,
+    color: g.color,
+    icon: `<i class="${g.icon}"></i>`,
+    members: g.members
+  })),
+  aiResponses: {
+    '案例': aiResponses.case,
+    '分析': aiResponses.case,
+    '学习': aiResponses.learn,
+    '建议': aiResponses.learn,
+    '政策': aiResponses.policy,
+    '解读': aiResponses.policy,
+    '品牌': aiResponses.brand,
+    '策划': aiResponses.brand,
+    '营销': aiResponses.brand
+  }
+};

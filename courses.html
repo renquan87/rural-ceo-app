@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="课程中心 - 视频课程与图文教程，系统化学习乡村治理知识，提升核心能力">
+  <meta name="keywords" content="乡村振兴课程,乡村治理培训,电商运营,品牌建设,政策解读">
+  <meta name="theme-color" content="#4a7c59">
+  <meta property="og:title" content="课程中心 - "乡理人"点亮行动">
+  <meta property="og:description" content="视频课程与图文教程，系统化学习乡村治理知识">
+  <meta property="og:type" content="website">
+  <title>课程中心 - "乡理人"点亮行动</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .courses-page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .course-page-card {
+      background: var(--bg-white); border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+      cursor: pointer; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .course-page-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .course-page-card:focus-visible { outline: 2px solid var(--moss); outline-offset: 2px; }
+    .course-page-thumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 42px; color: #fff; }
+    .course-page-body { padding: 22px 24px; }
+    .course-page-body h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+    .course-page-body p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .course-page-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .course-page-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-light); font-size: 13px; color: var(--text-muted); }
+    .course-page-meta i { margin-right: 4px; }
+    .courses-filter { display: flex; gap: 8px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .courses-filter-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-white); color: var(--text-secondary); font-size: 14px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+    .courses-filter-btn:hover, .courses-filter-btn.active { background: var(--leaf-bg); color: var(--moss); border-color: var(--moss-light); }
+    .courses-count { text-align: center; margin-bottom: 24px; font-size: 14px; color: var(--text-muted); }
+    @media (max-width: 1024px) { .courses-page-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .courses-page-grid { grid-template-columns: 1fr; } .courses-filter { gap: 6px; } .courses-filter-btn { padding: 6px 14px; font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">跳转到主要内容</a>
+
+  <nav class="site-nav" role="navigation" aria-label="主导航"><div class="nav-container">
+    <a href="index.html" class="nav-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>乡理人</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-link">首页</a><a href="modules.html" class="nav-link">能力培养</a>
+      <a href="cases.html" class="nav-link">成功案例</a><a href="courses.html" class="nav-link active" aria-current="page">课程中心</a>
+      <a href="resources.html" class="nav-link">学习资料</a><a href="ai.html" class="nav-link">AI助手</a>
+      <a href="community.html" class="nav-link">交流社区</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
+    <a href="modules.html" class="nav-cta">开始学习 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+  </div></nav>
+
+  <main id="main-content">
+    <section class="page-hero"><div class="section-container">
+      <div class="section-tag">系统学习</div>
+      <h1 class="section-title">课程中心</h1>
+      <p class="section-subtitle">视频课程与图文教程，系统化学习乡村治理知识</p>
+    </div></section>
+
+    <section class="section"><div class="section-container">
+      <div class="courses-filter" id="courses-filter" role="tablist" aria-label="课程分类筛选"></div>
+      <div class="courses-count" id="courses-count" aria-live="polite"></div>
+      <div class="courses-page-grid" id="courses-grid" role="list"></div>
+    </div></section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="footer-container">
+    <div class="footer-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>"乡理人"点亮行动</span></div>
+    <p class="footer-desc">致力于培养新时代乡村治理人才</p>
+    <div class="footer-links">
+      <a href="modules.html">能力培养</a><a href="cases.html">成功案例</a>
+      <a href="courses.html">课程中心</a><a href="resources.html">学习资料</a>
+      <a href="ai.html">AI助手</a><a href="community.html">交流社区</a>
+    </div>
+    <p class="footer-copy">© 2026 "乡理人"点亮行动 · 版本 2.0</p>
+  </div></footer>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <div class="modal-overlay hidden" id="modal-overlay" role="presentation"></div>
+  <div class="modal-panel hidden" id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header"><h3 id="modal-title"></h3><button onclick="closeModal()" class="btn-close-modal" aria-label="关闭"><i class="fas fa-times" aria-hidden="true"></i></button></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script>
+    let currentFilter = '全部';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('scroll', () => document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 20));
+
+      // 汉堡菜单
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+          navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        });
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+          });
+        });
+      }
+
+      // 筛选按钮
+      const types = ['全部', '视频课程', '图文教程'];
+      document.getElementById('courses-filter').innerHTML = types.map(t =>
+        `<button class="courses-filter-btn${t === '全部' ? ' active' : ''}" onclick="filterCourses('${t}')" role="tab" aria-selected="${t === '全部'}">${t}</button>`
+      ).join('');
+
+      renderCourses();
+    });
+
+    function filterCourses(type) {
+      currentFilter = type;
+      document.querySelectorAll('.courses-filter-btn').forEach(b => {
+        const isActive = b.textContent === type;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive);
+      });
+      renderCourses();
+    }
+
+    function renderCourses() {
+      const grid = document.getElementById('courses-grid');
+      const filtered = currentFilter === '全部' ? AppData.courses : AppData.courses.filter(c => c.type === currentFilter);
+      const tagMap = {video:'tag-video', article:'tag-article', practice:'tag-practice'};
+
+      document.getElementById('courses-count').textContent = `共 ${filtered.length} 门课程`;
+
+      grid.innerHTML = filtered.map((c, i) => {
+        const origIndex = AppData.courses.indexOf(c);
+        return `<div class="course-page-card reveal" role="listitem" tabindex="0" onclick="openCourse(${origIndex})" onkeydown="if(event.key==='Enter')openCourse(${origIndex})" style="animation-delay:${i*0.06}s">
+          <div class="course-page-thumb" style="background:${c.gradient || 'linear-gradient(135deg, var(--moss), var(--leaf))'}">${c.icon}</div>
+          <div class="course-page-body">
+            <h3>${c.title}</h3>
+            <p>${c.summary || c.description || '系统化学习乡村治理相关知识'}</p>
+            <div class="course-page-tags">${(c.tags || []).map(t => `<span class="course-tag ${tagMap[t]||'tag-article'}">${t==='video'?'视频':t==='article'?'图文':'实践'}</span>`).join('')}</div>
+            <div class="course-page-meta"><span><i class="fas fa-clock" aria-hidden="true"></i> ${c.duration}</span><span><i class="fas fa-signal" aria-hidden="true"></i> ${c.level||'入门'}</span></div>
+          </div>
+        </div>`;
+      }).join('');
+
+      const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.08});
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
+    function openCourse(i) {
+      const c = AppData.courses[i];
+      if (!c) return;
+      document.getElementById('modal-title').textContent = c.title;
+      document.getElementById('modal-body').innerHTML = `
+        <div style="height:200px;background:${c.gradient || 'linear-gradient(135deg, var(--moss), var(--leaf))'};border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:56px;color:#fff;margin-bottom:20px">${c.icon}</div>
+        <div class="detail-meta"><span><i class="fas fa-clock" aria-hidden="true"></i> ${c.duration}</span><span><i class="fas fa-signal" aria-hidden="true"></i> ${c.level||'入门'}</span><span><i class="fas fa-tag" aria-hidden="true"></i> ${c.type}</span></div>
+        <div class="detail-actions"><button class="btn-primary" onclick="showToast('课程即将开始，敬请期待！')"><i class="fas fa-play" aria-hidden="true"></i> 开始学习</button><button class="btn-outline" onclick="showToast('已收藏此课程')"><i class="fas fa-bookmark" aria-hidden="true"></i> 收藏</button></div>
+        <div class="detail-section"><h3>课程简介</h3><p>${c.description || '本课程系统讲解乡村治理相关知识，帮助学员快速掌握核心技能。'}</p></div>
+        <div class="detail-section"><h3>课程大纲</h3><ul>${(c.chapters||['第一章：基础概念','第二章：核心方法','第三章：实践应用','第四章：案例分析']).map(ch=>`<li>${ch}</li>`).join('')}</ul></div>`;
+      document.getElementById('modal-overlay').classList.remove('hidden');
+      document.getElementById('modal-panel').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.btn-close-modal').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      document.getElementById('modal-panel').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-overlay').addEventListener('click', closeModal);
+
+    function showToast(msg) {
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = msg;
+      document.getElementById('toast-container').appendChild(t);
+      setTimeout(() => t.remove(), 3000);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const panel = document.getElementById('modal-panel');
+        if (panel && !panel.classList.contains('hidden')) { closeModal(); return; }
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.querySelector('i').className = 'fas fa-bars';
+          navToggle.focus();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

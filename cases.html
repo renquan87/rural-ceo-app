@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="成功案例 - 学习各地乡村振兴的成功经验，找到适合你的发展路径">
+  <meta name="keywords" content="乡村振兴案例,成功经验,安吉两山,寿光蔬菜,精准扶贫">
+  <meta name="theme-color" content="#4a7c59">
+  <meta property="og:title" content="成功案例 - "乡理人"点亮行动">
+  <meta property="og:description" content="各地乡村振兴成功经验，找到适合你的发展路径">
+  <meta property="og:type" content="website">
+  <title>成功案例 - "乡理人"点亮行动</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">跳转到主要内容</a>
+
+  <nav class="site-nav" role="navigation" aria-label="主导航">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>乡理人</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="modules.html" class="nav-link">能力培养</a>
+        <a href="cases.html" class="nav-link active" aria-current="page">成功案例</a>
+        <a href="courses.html" class="nav-link">课程中心</a>
+        <a href="resources.html" class="nav-link">学习资料</a>
+        <a href="ai.html" class="nav-link">AI助手</a>
+        <a href="community.html" class="nav-link">交流社区</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      <a href="modules.html" class="nav-cta">开始学习 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="section-container">
+        <div class="section-tag">实践经验</div>
+        <h1 class="section-title">成功案例</h1>
+        <p class="section-subtitle">学习各地乡村振兴的成功经验，找到适合你的发展路径</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <div class="cases-grid" id="cases-grid" role="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>"乡理人"点亮行动</span></div>
+      <p class="footer-desc">致力于培养新时代乡村治理人才</p>
+      <div class="footer-links">
+        <a href="modules.html">能力培养</a><a href="cases.html">成功案例</a>
+        <a href="courses.html">课程中心</a><a href="resources.html">学习资料</a>
+        <a href="ai.html">AI助手</a><a href="community.html">交流社区</a>
+      </div>
+      <p class="footer-copy">© 2026 "乡理人"点亮行动 · 版本 2.0</p>
+    </div>
+  </footer>
+
+  <!-- 模态框 -->
+  <div class="modal-overlay hidden" id="modal-overlay" role="presentation"></div>
+  <div class="modal-panel hidden" id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <h3 id="modal-title">标题</h3>
+      <button onclick="closeModal()" class="btn-close-modal" aria-label="关闭"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('scroll', () => {
+        document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      // 汉堡菜单
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+          navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        });
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+          });
+        });
+      }
+
+      renderCases();
+      initReveal();
+    });
+
+    function initReveal() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
+    function renderCases() {
+      const grid = document.getElementById('cases-grid');
+      grid.innerHTML = AppData.cases.map((c, i) => `
+        <div class="case-card reveal" role="listitem" tabindex="0" onclick="openCaseDetail(${i})" onkeydown="if(event.key==='Enter')openCaseDetail(${i})" style="animation-delay:${i * 0.06}s">
+          <div style="overflow:hidden">
+            ${c.image
+              ? `<img class="case-card-img" src="${c.image}" alt="${c.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+              : ''
+            }
+            <div class="case-card-img" style="background:${c.gradient};${c.image ? 'display:none;' : 'display:flex;'}align-items:center;justify-content:center;font-size:32px;color:#fff">${c.icon || '🌾'}</div>
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-title">${c.title}</div>
+            <div class="case-card-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${c.location || c.category}</div>
+          </div>
+        </div>
+      `).join('');
+      setTimeout(initReveal, 50);
+    }
+
+    function openCaseDetail(index) {
+      const c = AppData.cases[index];
+      if (!c) return;
+      const coverHTML = c.image
+        ? `<img class="detail-cover" src="${c.image}" alt="${c.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="detail-cover" style="background:${c.gradient};display:none;align-items:center;justify-content:center;font-size:48px;color:#fff;border-radius:24px">${c.icon || '🌾'}</div>`
+        : `<div class="detail-cover" style="background:${c.gradient};display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;border-radius:24px">${c.icon || '🌾'}</div>`;
+
+      openModal(c.title, `
+        ${coverHTML}
+        <div class="detail-meta">
+          <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${c.location || '未知地区'}</span>
+          <span><i class="fas fa-tag" aria-hidden="true"></i> ${c.category || '乡村振兴'}</span>
+        </div>
+        <div class="detail-actions">
+          <a href="ai.html" class="btn-primary"><i class="fas fa-robot" aria-hidden="true"></i> AI分析此案例</a>
+          <button class="btn-outline" onclick="showToast('已收藏')"><i class="fas fa-bookmark" aria-hidden="true"></i> 收藏</button>
+        </div>
+        <div class="detail-section">
+          <h3>案例简介</h3>
+          <p>${c.summary || c.description || '暂无详细介绍'}</p>
+        </div>
+        ${c.keyPoints ? `<div class="detail-section"><h3>关键标签</h3><ul>${c.keyPoints.map(p => `<li>${p}</li>`).join('')}</ul></div>` : ''}
+      `);
+    }
+
+    function openModal(title, bodyHTML) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-body').innerHTML = bodyHTML;
+      document.getElementById('modal-overlay').classList.remove('hidden');
+      document.getElementById('modal-panel').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.btn-close-modal').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      document.getElementById('modal-panel').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-overlay').addEventListener('click', closeModal);
+
+    function showToast(msg) {
+      const c = document.getElementById('toast-container');
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(() => t.remove(), 3000);
+    }
+
+    // ESC关闭
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const panel = document.getElementById('modal-panel');
+        if (panel && !panel.classList.contains('hidden')) { closeModal(); return; }
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.querySelector('i').className = 'fas fa-bars';
+          navToggle.focus();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

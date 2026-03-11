@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI助手 - 智能分析成功案例，为您提供个性化乡村发展思路和建议">
+  <meta name="keywords" content="AI助手,智能分析,乡村振兴,案例分析,政策咨询">
+  <meta name="theme-color" content="#4a7c59">
+  <meta property="og:title" content="AI助手 - "乡理人"点亮行动">
+  <meta property="og:description" content="智能分析成功案例，为您提供个性化乡村发展思路">
+  <meta property="og:type" content="website">
+  <title>AI助手 - "乡理人"点亮行动</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .ai-page-layout { max-width: 860px; margin: 0 auto; }
+    .ai-intro { text-align: center; margin-bottom: 32px; }
+    .ai-intro p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .ai-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
+    .ai-feat { background: var(--bg-white); border-radius: var(--radius); padding: 20px; border: 1px solid var(--border-light); text-align: center; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+    .ai-feat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .ai-feat i { font-size: 28px; color: var(--moss); margin-bottom: 10px; display: block; }
+    .ai-feat h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .ai-feat p { font-size: 12px; color: var(--text-muted); }
+    .ai-chat-full { background: var(--bg-white); border-radius: var(--radius-xl); border: 1px solid var(--border-light); box-shadow: var(--shadow-md); overflow: hidden; }
+    .ai-chat-full .ai-quick-actions { display: flex; gap: 8px; padding: 18px 24px 12px; overflow-x: auto; scrollbar-width: none; }
+    .ai-chat-full .ai-quick-actions::-webkit-scrollbar { display: none; }
+    .ai-chat-full .ai-quick-actions button { display: flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: var(--transition); }
+    .ai-chat-full .ai-quick-actions button:hover { border-color: var(--moss-light); color: var(--moss); background: var(--leaf-bg); }
+    .ai-chat-full .chat-messages { height: 440px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 16px 24px; scrollbar-width: thin; }
+    .ai-chat-full .chat-input-area { padding: 12px 24px 18px; border-top: 1px solid var(--border-light); }
+    @media (max-width: 768px) { .ai-features { grid-template-columns: 1fr; } .ai-chat-full .chat-messages { height: 350px; padding: 12px 16px; } .ai-chat-full .ai-quick-actions { padding: 12px 16px 8px; } .ai-chat-full .chat-input-area { padding: 10px 16px 14px; } .chat-msg { max-width: 90%; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">跳转到主要内容</a>
+
+  <nav class="site-nav" role="navigation" aria-label="主导航"><div class="nav-container">
+    <a href="index.html" class="nav-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>乡理人</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-link">首页</a><a href="modules.html" class="nav-link">能力培养</a>
+      <a href="cases.html" class="nav-link">成功案例</a><a href="courses.html" class="nav-link">课程中心</a>
+      <a href="resources.html" class="nav-link">学习资料</a><a href="ai.html" class="nav-link active" aria-current="page">AI助手</a>
+      <a href="community.html" class="nav-link">交流社区</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars" aria-hidden="true"></i></button>
+    <a href="modules.html" class="nav-cta">开始学习 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+  </div></nav>
+
+  <main id="main-content">
+    <section class="page-hero"><div class="section-container">
+      <div class="section-tag">智能辅助</div>
+      <h1 class="section-title">AI 助手</h1>
+      <p class="section-subtitle">智能分析成功案例，为您提供个性化乡村发展思路</p>
+    </div></section>
+
+    <section class="section"><div class="section-container">
+      <div class="ai-page-layout">
+        <div class="ai-features">
+          <div class="ai-feat reveal"><i class="fas fa-search" aria-hidden="true"></i><h4>案例分析</h4><p>深度解读成功案例的关键要素</p></div>
+          <div class="ai-feat reveal"><i class="fas fa-route" aria-hidden="true"></i><h4>发展建议</h4><p>根据本地条件提供发展路径</p></div>
+          <div class="ai-feat reveal"><i class="fas fa-question-circle" aria-hidden="true"></i><h4>政策咨询</h4><p>解答乡村振兴政策相关问题</p></div>
+        </div>
+        <div class="ai-chat-full" role="region" aria-label="AI对话区域">
+          <div class="ai-quick-actions" role="toolbar" aria-label="快捷提问">
+            <button onclick="quickAsk('分析淄博烧烤的成功经验')" type="button"><i class="fas fa-lightbulb" aria-hidden="true"></i> 分析淄博烧烤案例</button>
+            <button onclick="quickAsk('我们村有茶园资源，如何发展乡村旅游？')" type="button"><i class="fas fa-route" aria-hidden="true"></i> 乡村旅游规划</button>
+            <button onclick="quickAsk('如何申请乡村振兴相关补贴？')" type="button"><i class="fas fa-file-alt" aria-hidden="true"></i> 政策补贴咨询</button>
+            <button onclick="quickAsk('如何打造农产品品牌？')" type="button"><i class="fas fa-tag" aria-hidden="true"></i> 品牌建设建议</button>
+          </div>
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-label="对话记录">
+            <div class="chat-msg ai">
+              <div class="chat-msg-avatar"><i class="fas fa-robot" aria-hidden="true"></i></div>
+              <div class="chat-msg-bubble">你好！我是乡理人AI助手 🌱<br><br>我可以帮你：<br>• 分析乡村振兴成功案例<br>• 提供发展思路和建议<br>• 解答政策相关问题<br><br>请输入你的问题，或点击上方快捷按钮开始对话。</div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <div class="chat-input-wrapper">
+              <label for="chat-input" class="sr-only">输入你的问题</label>
+              <input type="text" id="chat-input" placeholder="输入你的问题..." onkeydown="if(event.key==='Enter')sendMsg()" autocomplete="off">
+              <button class="btn-send" onclick="sendMsg()" aria-label="发送消息" type="button"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo"><div class="footer-container">
+    <div class="footer-brand"><i class="fas fa-seedling" aria-hidden="true"></i><span>"乡理人"点亮行动</span></div>
+    <p class="footer-desc">致力于培养新时代乡村治理人才</p>
+    <div class="footer-links">
+      <a href="modules.html">能力培养</a><a href="cases.html">成功案例</a>
+      <a href="courses.html">课程中心</a><a href="resources.html">学习资料</a>
+      <a href="ai.html">AI助手</a><a href="community.html">交流社区</a>
+    </div>
+    <p class="footer-copy">© 2026 "乡理人"点亮行动 · 版本 2.0</p>
+  </div></footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('scroll', () => document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 20));
+
+      // 汉堡菜单
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+          navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        });
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+          });
+        });
+      }
+
+      // 滚动揭示
+      const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.08});
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    });
+
+    function quickAsk(q) {
+      document.getElementById('chat-input').value = q;
+      sendMsg();
+    }
+
+    function sendMsg() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      addMsg('user', text);
+      // 打字指示
+      const typing = addMsg('ai', '<div class="typing-indicator"><span></span><span></span><span></span></div>', true);
+      setTimeout(() => {
+        typing.remove();
+        const resp = getAIResponse(text);
+        addMsg('ai', resp);
+      }, 1200 + Math.random() * 800);
+    }
+
+    function addMsg(role, content, isHTML) {
+      const box = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = `chat-msg ${role}`;
+      const icon = role === 'ai' ? 'fa-robot' : 'fa-user';
+      div.innerHTML = `<div class="chat-msg-avatar"><i class="fas ${icon}" aria-hidden="true"></i></div><div class="chat-msg-bubble">${isHTML ? content : escapeHTML(content)}</div>`;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+      return div;
+    }
+
+    function escapeHTML(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+    }
+
+    function getAIResponse(q) {
+      // 优先匹配具体关键词（避免被AppData通用词提前截获）
+      if (q.includes('淄博') || q.includes('烧烤')) return '淄博烧烤现象的成功要素分析：\n\n1. 产品特色：小饼+蘸料+小葱的独特吃法，高辨识度\n2. 政府支持：开通烧烤专列，规范市场秩序\n3. 城市服务：提升城市整体服务质量和游客体验\n4. 社交传播：短视频平台的裂变式传播效应\n5. 真诚态度：朴实、热情的城市形象深入人心\n\n可借鉴要点：\n- 挖掘本地特色产品和文化\n- 政府和民间形成合力\n- 善用新媒体进行传播\n- 注重游客体验和服务品质';
+      if (q.includes('旅游') || q.includes('茶')) return '关于乡村旅游规划建议：\n\n1. 茶园资源是非常好的旅游亮点，可以开发茶文化体验项目\n2. 建议打造"采茶-制茶-品茶"一体化体验路线\n3. 结合当地自然风光，发展民宿和农家乐\n4. 开发茶主题文创产品，增加附加值\n5. 利用短视频平台进行营销推广\n\n建议参考安吉白茶产业的成功经验。';
+      if (q.includes('品牌') || q.includes('营销')) return '农产品品牌建设建议：\n\n1. 挖掘产品故事和文化内涵\n2. 设计有辨识度的品牌视觉系统\n3. 利用短视频和直播进行推广\n4. 申请地理标志认证提升品牌价值\n5. 建立质量追溯体系增强消费者信任\n\n可以参考"课程中心"中的品牌建设课程。';
+      if (q.includes('政策') || q.includes('补贴')) return '关于乡村振兴政策，以下是一些关键信息：\n\n1. 中央一号文件每年都会发布乡村振兴相关政策\n2. 各地有不同的创业补贴和扶持政策\n3. 建议关注当地农业农村局的官方通知\n4. 可以申请的项目包括：产业发展资金、基础设施建设、人才培训等\n\n更多政策详情请查看"学习资料"板块。';
+
+      // 从AppData获取结构化响应
+      const responses = AppData.aiResponses || {};
+      const keys = Object.keys(responses);
+      for (const k of keys) {
+        if (q.includes(k)) {
+          const resp = responses[k];
+          if (Array.isArray(resp)) {
+            return resp[Math.floor(Math.random() * resp.length)];
+          }
+          return resp;
+        }
+      }
+
+      // 通用兜底响应
+      if (q.includes('案例') || q.includes('分析')) return '根据您的问题，我来分析一下相关案例：\n\n1. 首先需要了解当地的资源禀赋和区位优势\n2. 参考类似地区的成功经验，如产业融合、文旅结合等模式\n3. 制定差异化发展策略，避免同质化竞争\n4. 注重品牌建设和营销推广\n\n建议您查看"成功案例"板块中的相关案例，获取更多灵感。';
+      return '感谢您的提问！这是一个很好的问题。\n\n基于我的分析，建议您：\n1. 深入了解当地资源和市场需求\n2. 参考平台上的成功案例寻找灵感\n3. 结合实际情况制定可行方案\n4. 善用政策支持和各类资源\n\n如需更详细的分析，请提供更多具体信息，我会为您提供更有针对性的建议。';
+    }
+
+    // ESC关闭移动菜单
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.querySelector('i').className = 'fas fa-bars';
+          navToggle.focus();
+        }
+      }
+    });
+  </script>
+
+  <!-- 屏幕阅读器辅助样式 -->
+  <style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</style>
+</body>
+</html>
